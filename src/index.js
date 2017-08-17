@@ -6,12 +6,13 @@ import { Provider } from 'react-redux';
 
 import App from './components/app';
 import Stack from './components/stack';
+import StackForm from './components/stackform';
 import { setStack } from './actions';
 import rootReducer from './reducers';
 
 const store = createStore(rootReducer);
 store.subscribe(()=> {
-  console.log('store', store.getState());
+  // console.log('store', store.getState());
 });
 
 store.dispatch(setStack({ id: 0, title: 'example', cards: []}));
@@ -22,6 +23,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path='/' component={App}/>
         <Route path='/stack' component={Stack} />
+        <Route path='/new' component={StackForm} />
       </Switch>
     </BrowserRouter>
   </Provider>,
