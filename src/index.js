@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import App from './components/app';
+import Stack from './components/stack';
 
 ReactDOM.render(
-  <App />,
+  <BrowserRouter>
+    <Switch>
+      <Route exact path='/' component={App}/>
+      <Route path='/stack' component={Stack} />
+    </Switch>
+  </BrowserRouter>,
   document.getElementById('root')
 );
